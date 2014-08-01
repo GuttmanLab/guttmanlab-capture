@@ -2,10 +2,11 @@ package capture.filter;
 
 import java.util.List;
 
+import primer.PrimerPair;
+
 import capture.ArrayFeature;
 import capture.OligoPool;
 import capture.ProbeSet;
-import broad.core.primer3.PrimerPair;
 
 /**
  * @author prussell

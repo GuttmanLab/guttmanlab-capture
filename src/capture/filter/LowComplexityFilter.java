@@ -12,13 +12,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import pipeline.ConfigFileOptionValue;
+import primer.PrimerPair;
 
 import capture.OligoPool;
 import capture.Probe;
 import capture.ProbeSet;
 
 import broad.core.parser.CommandLineParser;
-import broad.core.primer3.PrimerPair;
 import broad.core.sequence.FastaSequenceIO;
 import broad.core.sequence.Sequence;
 

@@ -6,12 +6,12 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import pipeline.ConfigFileOptionValue;
+import primer.PrimerPair;
 
 import capture.OligoPool;
 import capture.Probe;
 import capture.ProbeSet;
 
-import broad.core.primer3.PrimerPair;
 
 /**
  * @author prussell

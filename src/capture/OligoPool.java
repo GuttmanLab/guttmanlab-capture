@@ -20,6 +20,8 @@ import pipeline.ConfigFile;
 import pipeline.ConfigFileOption;
 import pipeline.ConfigFileOptionValue;
 import pipeline.ConfigFileSection;
+import primer.PrimerPair;
+import primer.PrimerUtils;
 
 import capture.arrayscheme.*;
 import capture.filter.*;
@@ -28,8 +30,6 @@ import net.sf.samtools.util.CloseableIterator;
 import nextgen.core.general.TabbedReader;
 import broad.core.error.ParseException;
 import broad.core.parser.CommandLineParser;
-import broad.core.primer3.PrimerPair;
-import broad.core.primer3.PrimerUtils;
 import broad.core.sequence.FastaSequenceIO;
 import broad.core.sequence.Sequence;
 
