@@ -29,7 +29,8 @@ optimal_tm_for_primers  67
 
 ###### Existing file of primers to try first
 ###### Leave out to generate new primers
-primer_file	primers_20_67_full_table	
+###### This is the set of permanent primers the lab is currently maintaining
+primer_file	/storage/Lab/Primers/permanent_primers_20_67_set1_full_table	
 
 ###### Extra flanking sequences for ends of oligos (optional)
 extra_flank_5prime      CCCCCCCCCC
@@ -39,10 +40,13 @@ extra_flank_3prime      AAAAAAAAAA
 ###### Can include multiple layouts that will be combined according to the pool scheme
 
 ### 120bp oligos tiled every 15bp starting at position 0, antisense to transcript
-#probe_layout	single_tiling_probe_layout	120	15	0	antisense
+probe_layout	single_tiling_probe_layout	120	15	0	antisense
+# additional layout
+# additional layout
 
 ###### Pool scheme
 ###### Specifies how probe sets are pooled under shared primers
+###### Uncomment the one you want to use
 
 ### A single primer for all oligos
 #pool_scheme	simple_pool_scheme
@@ -61,7 +65,7 @@ extra_flank_3prime      AAAAAAAAAA
 #pool_scheme	grouped_stacked_pool_scheme	sequence_groups
 
 ##### The primer3_core executable file
-primer3_core_path	./primer3_core
+primer3_core_path	/storage/Software/Primer3/primer3_core
 
 
 ###################################################

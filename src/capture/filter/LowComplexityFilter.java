@@ -1,5 +1,7 @@
 package capture.filter;
 
+import general.CommandLineParser;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +20,6 @@ import capture.OligoPool;
 import capture.Probe;
 import capture.ProbeSet;
 
-import broad.core.parser.CommandLineParser;
 import broad.core.sequence.FastaSequenceIO;
 import broad.core.sequence.Sequence;
 

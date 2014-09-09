@@ -1,5 +1,8 @@
 package capture;
 
+import general.CommandLineParser;
+import general.StringParser;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,8 +20,6 @@ import org.apache.log4j.Logger;
 import nextgen.core.annotation.PSLRecord;
 import nextgen.core.readers.PSLReader;
 
-import broad.core.parser.CommandLineParser;
-import broad.core.parser.StringParser;
 
 /**
  * Filter probes produced by oligo array designer

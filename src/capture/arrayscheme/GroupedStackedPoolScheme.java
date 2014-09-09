@@ -1,5 +1,7 @@
 package capture.arrayscheme;
 
+import general.StringParser;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,7 +19,6 @@ import pipeline.ConfigFileOptionValue;
 import capture.OligoPool;
 import capture.ProbeSet;
 
-import broad.core.parser.StringParser;
 import broad.core.sequence.Sequence;
 
 public class GroupedStackedPoolScheme implements PoolScheme {

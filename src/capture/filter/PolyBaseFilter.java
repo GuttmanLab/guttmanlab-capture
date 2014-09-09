@@ -5,8 +5,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import broad.core.primer3.PrimerPair;
+
 import pipeline.ConfigFileOptionValue;
-import primer.PrimerPair;
 
 import capture.OligoPool;
 import capture.Probe;

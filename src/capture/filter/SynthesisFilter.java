@@ -42,6 +42,9 @@ public class SynthesisFilter implements ProbeFilter {
 	@Override
 	public void setParametersFromConfigFile(ConfigFileOptionValue value) {	}
 
+	public String toString() {
+		return name();
+	}
 	
 	@Override
 	public boolean rejectProbe(Probe probe) {

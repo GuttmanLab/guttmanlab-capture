@@ -1,5 +1,7 @@
 package capture;
 
+import general.CommandLineParser;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,8 +22,6 @@ import pipeline.ConfigFile;
 import pipeline.ConfigFileOption;
 import pipeline.ConfigFileOptionValue;
 import pipeline.ConfigFileSection;
-import primer.PrimerPair;
-import primer.PrimerUtils;
 
 import capture.arrayscheme.*;
 import capture.filter.*;
@@ -29,7 +29,8 @@ import capture.filter.*;
 import net.sf.samtools.util.CloseableIterator;
 import nextgen.core.general.TabbedReader;
 import broad.core.error.ParseException;
-import broad.core.parser.CommandLineParser;
+import broad.core.primer3.PrimerPair;
+import broad.core.primer3.PrimerUtils;
 import broad.core.sequence.FastaSequenceIO;
 import broad.core.sequence.Sequence;
 
@@ -84,6 +85,75 @@ public class OligoPool {
 		primerFilters = getPrimerFiltersFromConfigFile();
 		logger.info("");
 		logger.info("Done instantiating oligo pool.");
+	}
+	
+	/**
+	 * Construct a simple array designer that will assign a single primer to all probes
+	 * @param transcriptFasta
+	 * @param probeLength
+	 * @param probeStepSize
+	 * @param primer3core
+	 * @param primerSize
+	 * @param optimalPrimerTm
+	 * @param applyProbeLowComplexityFilter
+	 * @param applyProbePolyBaseFilter
+	 * @param probePolyBaseFilterBases
+	 * @param probePolyBaseFilterCutoff
+	 * @param probePolyBaseFilterRepeatLength
+	 * @param applyProbeRepeatFilter
+	 * @param probeRepeatFilterMaxPct
+	 * @param probeRepeatFilterLower
+	 * @param probeRepeatFilterN
+	 * @param applyPrimerPolyBaseFilter
+	 * @param primerPolyBaseFilterBases
+	 * @param primerPolyBaseFilterCutoff
+	 * @param primerPolyBaseFilterRepeatLength
+	 * @throws IOException 
+	 */
+	public OligoPool(String transcriptFasta, 
+			int probeLength,
+			int probeStepSize,
+			String primer3core, 
+			int primerLength, 
+			double optimalPrimerTm, 
+			boolean applyProbeLowComplexityFilter, 
+			boolean applyProbePolyBaseFilter, String probePolyBaseFilterBases, int probePolyBaseFilterCutoff, int probePolyBaseFilterRepeatLength,
+			boolean applyProbeRepeatFilter, double probeRepeatFilterMaxPct, boolean probeRepeatFilterLower, boolean probeRepeatFilterN,
+			boolean applyPrimerPolyBaseFilter, String primerPolyBaseFilterBases, int primerPolyBaseFilterCutoff, int primerPolyBaseFilterRepeatLength) throws IOException {
+		
+		// Get sequences
+		FastaSequenceIO fsio = new FastaSequenceIO(transcriptFasta);
+		transcripts = fsio.loadAll();
+		logger.info("Got " + transcripts.size() + " transcripts.");
+		
+		// Set parameters
+		primerSize = primerLength;
+		optimalTm = optimalPrimerTm;
+		primer3corePath = primer3core;
+		
+		// Create design scheme
+		SingleTilingProbeLayout layout = new SingleTilingProbeLayout(probeLength, probeStepSize, 0, true);
+		poolScheme = new SimplePoolScheme(layout);
+		
+		// Add probe filters
+		probeFilters = new ArrayList<ProbeFilter>();
+		probeFilters.add(new SynthesisFilter());
+		if(applyProbeLowComplexityFilter) {
+			probeFilters.add(new LowComplexityFilter());
+		}
+		if(applyProbePolyBaseFilter) {
+			probeFilters.add(new PolyBaseFilter(probePolyBaseFilterBases, probePolyBaseFilterCutoff, probePolyBaseFilterRepeatLength));
+		}
+		if(applyProbeRepeatFilter) {
+			probeFilters.add(new RepeatFilter(probeRepeatFilterMaxPct, probeRepeatFilterLower, probeRepeatFilterN));
+		}
+		
+		// Add primer filters
+		primerFilters = new ArrayList<PrimerFilter>();
+		if(applyPrimerPolyBaseFilter) {
+			primerFilters.add(new PolyBaseFilter(primerPolyBaseFilterBases, primerPolyBaseFilterCutoff, primerPolyBaseFilterRepeatLength));
+		}
+		
 	}
 	
 	public static String probeLayoutOptionFlag = "probe_layout";
@@ -141,10 +211,12 @@ public class OligoPool {
 	}
 	
 	private String getFlank5primeFromConfigFile() {
+		if(configFile == null) return null;
 		return configFile.getSingleValueString(arraySchemeSection, flank5primeOption);
 	}
 	
 	private String getFlank3primeFromConfigFile() {
+		if(configFile == null) return null;
 		return configFile.getSingleValueString(arraySchemeSection, flank3primeOption);
 	}
 	
@@ -298,7 +370,7 @@ public class OligoPool {
 	 * @throws IOException
 	 * Main scripting function to create/read oligos and assign primers
 	 */
-	private void createOligos(String outFilePrefix, String changePrimersInputFile, boolean reassignPrimers) throws IOException {
+	public void createOligos(String outFilePrefix, String changePrimersInputFile, boolean reassignPrimers) throws IOException {
 		
 		probeSetDesign = new TreeMap<String, List<FullDesignEntry>>();
 		
@@ -470,7 +542,7 @@ public class OligoPool {
 	}
 	
 	
-	private void writeFiles(String outFilePrefix) throws IOException {
+	public void writeFiles(String outFilePrefix) throws IOException {
 		logger.info("");
 		logger.info("Writing output files...");
 		writeProbeFasta(outFilePrefix + "_probes.fa");

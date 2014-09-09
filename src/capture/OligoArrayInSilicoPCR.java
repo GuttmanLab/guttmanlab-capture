@@ -1,5 +1,8 @@
 package capture;
 
+import general.CommandLineParser;
+import general.StringParser;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,8 +19,6 @@ import org.apache.log4j.Logger;
 
 import broad.core.datastructures.Pair;
 import broad.core.motif.SearchException;
-import broad.core.parser.CommandLineParser;
-import broad.core.parser.StringParser;
 import broad.core.primer3.isPCRLike;
 import broad.core.sequence.Sequence;
 
