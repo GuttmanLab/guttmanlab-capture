@@ -1,6 +1,6 @@
 package capture.filter;
 
-import general.CommandLineParser;
+import broad.core.parser.CommandLineParser;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -13,8 +13,8 @@ import java.util.TreeMap;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
-import pipeline.ConfigFileOptionValue;
-import primer.PrimerPair;
+import nextgen.core.pipeline.ConfigFileOptionValue;
+import broad.core.primer3.PrimerPair;
 
 import capture.OligoPool;
 import capture.Probe;

@@ -2,7 +2,7 @@ package capture.arrayscheme;
 
 import org.apache.log4j.Logger;
 
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.OligoPool;
 import capture.Probe;

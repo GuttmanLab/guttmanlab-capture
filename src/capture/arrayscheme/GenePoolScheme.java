@@ -5,8 +5,8 @@ import java.util.Collection;
 
 import org.apache.log4j.Logger;
 
-import pipeline.ConfigFile;
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFile;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.OligoPool;
 import capture.ProbeSet;

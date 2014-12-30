@@ -2,7 +2,7 @@ package capture.arrayscheme;
 
 import java.util.Collection;
 
-import pipeline.ConfigFile;
+import nextgen.core.pipeline.ConfigFile;
 
 import capture.ArrayFeature;
 import capture.ProbeSet;

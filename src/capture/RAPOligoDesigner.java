@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
-import general.CommandLineParser;
+import broad.core.parser.CommandLineParser;
 
 public class RAPOligoDesigner {
 

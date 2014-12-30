@@ -1,7 +1,7 @@
 package capture;
 
-import general.CommandLineParser;
-import general.StringParser;
+import broad.core.parser.CommandLineParser;
+import broad.core.parser.StringParser;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

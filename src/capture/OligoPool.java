@@ -1,6 +1,6 @@
 package capture;
 
-import general.CommandLineParser;
+import broad.core.parser.CommandLineParser;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,10 +18,10 @@ import java.util.TreeMap;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import pipeline.ConfigFile;
-import pipeline.ConfigFileOption;
-import pipeline.ConfigFileOptionValue;
-import pipeline.ConfigFileSection;
+import nextgen.core.pipeline.ConfigFile;
+import nextgen.core.pipeline.ConfigFileOption;
+import nextgen.core.pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFileSection;
 
 import capture.arrayscheme.*;
 import capture.filter.*;

@@ -1,6 +1,6 @@
 package capture.arrayscheme;
 
-import general.StringParser;
+import broad.core.parser.StringParser;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,8 +13,8 @@ import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 
-import pipeline.ConfigFile;
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFile;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.OligoPool;
 import capture.ProbeSet;

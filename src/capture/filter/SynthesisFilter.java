@@ -2,7 +2,7 @@ package capture.filter;
 
 import java.util.Collection;
 
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.Probe;
 import capture.ProbeSet;

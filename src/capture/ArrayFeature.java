@@ -1,6 +1,6 @@
 package capture;
 
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 /**
  * @author prussell

@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 
 import broad.core.primer3.PrimerPair;
 
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.OligoPool;
 import capture.Probe;

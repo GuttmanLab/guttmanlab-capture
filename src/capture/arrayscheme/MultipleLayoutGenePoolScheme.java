@@ -3,8 +3,8 @@ package capture.arrayscheme;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import pipeline.ConfigFile;
-import pipeline.ConfigFileOptionValue;
+import nextgen.core.pipeline.ConfigFile;
+import nextgen.core.pipeline.ConfigFileOptionValue;
 
 import capture.OligoPool;
 import capture.ProbeSet;

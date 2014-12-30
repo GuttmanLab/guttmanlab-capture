@@ -1,6 +1,6 @@
 package capture;
 
-import primer.PrimerPair;
+import broad.core.primer3.PrimerPair;
 import broad.core.sequence.Sequence;
 
 /**
