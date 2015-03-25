@@ -31,6 +31,7 @@ OUTPUT_DIR=$PROJECT/oligoPoolOutput
 mkdir $OUTPUT_DIR
 
 ## Genome fasta
+## ***** CHANGE *****
 MM9_FASTA=/storage/Projects/Arrays/lncRNA_introns_April_2014/sequences/mm9_plus_Sp_Onecut1_locus.fa
   
 #############################
@@ -52,6 +53,7 @@ $BLAT_PATH -minMatch=1 -minScore=25 $MM9_FASTA ${PREFIX}_oligos.fa blat/${PREFIX
 
 ## Combine BLAT results and generate a list of oligos to remove
 cd $OUTPUT_DIR/blat
+## ***** CHANGE *****
 genome=mm9
 tail -n +6 ${PREFIX}_oligos.psl > ${PREFIX}_oligos.no_header.psl
 Rscript $RSCRIPTS/BlatFilter.R \
